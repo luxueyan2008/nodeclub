@@ -17,7 +17,7 @@ var crypto = require('crypto');
 
 exports.index = function (req, res, next) {
   var user_name = req.params.name;
-  User.getUserByName(user_name, function (err, user) {
+  User.getUserByLoginName(user_name, function (err, user) {
     if (err) {
       return next(err);
     }
@@ -357,7 +357,7 @@ exports.toggle_star = function (req, res, next) {
 
 exports.get_collect_tags = function (req, res, next) {
   var name = req.params.name;
-  User.getUserByName(name, function (err, user) {
+  User.getUserByLoginName(name, function (err, user) {
     if (err || !user) {
       return next(err);
     }
@@ -381,7 +381,7 @@ exports.get_collect_tags = function (req, res, next) {
 
 exports.get_collect_topics = function (req, res, next) {
   var name = req.params.name;
-  User.getUserByName(name, function (err, user) {
+  User.getUserByLoginName(name, function (err, user) {
     if (err || !user) {
       return next(err);
     }
@@ -423,7 +423,7 @@ exports.get_collect_topics = function (req, res, next) {
 
 exports.get_followings = function (req, res, next) {
   var name = req.params.name;
-  User.getUserByName(name, function (err, user) {
+  User.getUserByLoginName(name, function (err, user) {
     if (err || !user) {
       return next(err);
     }
@@ -447,7 +447,7 @@ exports.get_followings = function (req, res, next) {
 
 exports.get_followers = function (req, res, next) {
   var name = req.params.name;
-  User.getUserByName(name, function (err, user) {
+  User.getUserByLoginName(name, function (err, user) {
     if (err || !user) {
       return next(err);
     }
@@ -480,7 +480,7 @@ exports.list_topics = function (req, res, next) {
   var page = Number(req.query.page) || 1;
   var limit = config.list_topic_count;
 
-  User.getUserByName(user_name, function (err, user) {
+  User.getUserByLoginName(user_name, function (err, user) {
     if (!user) {
       res.render('notify/notify', {error: '这个用户不存在。'});
       return;
@@ -523,7 +523,7 @@ exports.list_replies = function (req, res, next) {
   var page = Number(req.query.page) || 1;
   var limit = config.list_topic_count;
 
-  User.getUserByName(user_name, function (err, user) {
+  User.getUserByLoginName(user_name, function (err, user) {
     if (!user) {
       res.render('notify/notify', {error: '这个用户不存在。'});
       return;
