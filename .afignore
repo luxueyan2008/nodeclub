@@ -1,0 +1,12 @@
+.cov
+.git
+node_modules/.bin/
+.sass*
+%USERPROFILE%
+/public/.sass*
+iisnode/*
+.naeindex
+public/user_data
+coverage.html
+.monitor
+*.log

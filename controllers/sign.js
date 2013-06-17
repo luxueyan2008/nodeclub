@@ -159,12 +159,13 @@ exports.active_account = function (req, res, next) {
   var key = req.query.key;
   var name = req.query.name;
 
-  User.getUserByName(name, function (err, user) {
+  User.getUserByLoginName(name, function (err, user) {
     if (err) {
       return next(err);
     }
     if (!user || md5(user.email + config.session_secret) !== key) {
-      return res.render('notify/notify', {error: '信息有误，帐号无法被激活。'});
+      return res.render('notify/notify', {error: '信息有误，帐号无法被激活。' +
+      md5(user.email + config.session_secret) +',' + user.email + ',' + user.name+ ',' +key});
     }
     if (user.active) {
       return res.render('notify/notify', {error: '帐号已经是激活状态。'});
