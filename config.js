@@ -5,9 +5,9 @@
 var path = require('path');
 
 exports.config = {
-  debug: true,
-  name: '山炮哥之家',
-  description: '山炮哥之家 是用Node.js开发的社区软件',
+  debug: false,
+  name: 'WEB 攻城老湿',
+  description: 'WEB 攻城老湿 是用Node.js开发的社区软件',
   version: '0.2.2',
 
   // site settings
@@ -15,7 +15,7 @@ exports.config = {
     '<meta name="author" content="EDP@TAOBAO" />',
   ],
   host: 'http://myclub.ap01.aws.af.cm',
-  site_logo: '', // default is `name`
+  site_logo: '<img src="/images/mylogo.png"/>', // default is `name`
   site_navs: [
     // [ path, title, [target=''] ]
     [ '/about', '关于' ],
@@ -26,9 +26,9 @@ exports.config = {
 
   upload_dir: path.join(__dirname, 'public', 'user_data', 'images'),
 
-  db: 'mongodb://127.0.0.1/node_club_dev',
-  session_secret: 'node_club',
-  auth_cookie_name: 'node_club',
+  db: "mongodb://luxueyan:luxueyan881123@linus.mongohq.com:10043/myclub_luxueyan",
+  session_secret: 'luxueyan_club',
+  auth_cookie_name: 'luxueyan_club',
   port: 80,
 
   // 话题列表显示的话题数量
@@ -39,10 +39,10 @@ exports.config = {
 
   // RSS
   rss: {
-    title: '山炮哥之家中文社区',
+    title: 'WEB 攻城老湿中文社区',
     link: 'http://myclub.ap01.aws.af.cm',
     language: 'zh-cn',
-    description: '山炮哥之家中文社区',
+    description: 'WEB 攻城老湿中文社区',
 
     //最多获取的RSS Item数量
     max_rss_items: 50

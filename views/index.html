@@ -2,14 +2,16 @@
 
 <div id='content'>
 	<div class='panel'>
-		<div class='inner'>
+		<div class='inner nopadding'>
 			<div class='header'>
-				当前话题
 				<% if (locals.current_user) { %>
-					<a href='/topic/create' class='fr'>
+					&nbsp;
+					<a href='/topic/create' class='fl'>
 						<button class='btn btn-success fr' id='create_topic_btn'>发布话题</button>
-				  </a>
-				<% } %>
+				  	</a>
+				<% } else {%>
+					当前话题
+				<% }%>
 			</div>
 			<% if (locals.topics && topics.length > 0) { %>
 			<%- partial('topic/list', {

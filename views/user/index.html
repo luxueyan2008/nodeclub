@@ -61,14 +61,14 @@
 			<p class='col_fade'>于 <%= user.friendly_create_at %> 加入 <%= config.name %></p>
 			<% if (locals.current_user && current_user.is_admin) { %>
 				<% if (!user.is_star) { %>
-				<button class='btn' id='set_star_btn' action='set_star'>设为达人</button>
+				<button class='btn btn-primary' id='set_star_btn' action='set_star'>设为达人</button>
 				<% } else { %>
-				<button class='btn' id='set_star_btn' action='cancel_star'>取消达人</button>
+				<button class='btn btn-primary' id='set_star_btn' action='cancel_star'>取消达人</button>
 				<% } %>
 				<br/><br/>
 				Email (Seen by Administrator): <a href="mailto:<%= user.email %>"><%= user.email %></a>
 				<% if (!user.active) { %>
-				<a class='btn' href="/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
+				<a class='btn btn-success' href="/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
 				<% } %>
 			<% } %>
 		</div>

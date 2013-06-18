@@ -43,10 +43,7 @@
       <div class='navbar-inner'>
         <div class='container'>
           <a class='brand' href='/'><%- config.site_logo || config.name %></a>
-          <form id='search_form' class='navbar-search' action="/">
-            <input type='text' id='q' name='q' class='search-query span3' value='<%= locals.keyword || '' %>'/>
-          </form>
-          <ul class='nav pull-right'>
+          <ul class='nav pull-left'>
             <li><a href='/'>首页</a></li>
             <%
             var site_navs = config.site_navs || [];
@@ -68,6 +65,9 @@
             <li><a href='/signin'>登录</a></li>
             <% } %>
           </ul>
+          <form id='search_form' class='navbar-search' action="/">
+            <input type='text' id='q' name='q' class='search-query span3' autofocus="" autocomplete="off" lang="zh-CN" x-webkit-speech="" x-webkit-grammar="builtin:search" onwebkitspeechchange="$('#search_form').submit();" placeholder="输入搜索内容" value='<%= locals.keyword || '' %>'/>
+          </form>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
         </div>
         <div class='sep10'></div>
         <div class='col_fade'>
-          &copy; 2012 <br>本社区为开源系统，版本: <%= config.version %> ，欢迎贡献代码<br>
+          &copy; 2013 <br>本社区为nodeclub开源系统，版本: <%= config.version %> ，欢迎贡献代码<br>
           由<a href='http://appfog.com' target='_blank'> appfog </a>为 <%= config.name %> 提供动力
         </div>
       </div>

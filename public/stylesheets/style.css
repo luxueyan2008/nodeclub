@@ -4,6 +4,7 @@ div, textarea {
   -mox-box-sizing: border-box;
 }
 body {
+  background:url('/images/body-bg.png');
 }
 body, p {
   font-size: 14px;
@@ -23,7 +24,7 @@ body, p {
   padding-top: 34px;
 }
 #main {
-  width: 1060px;
+  min-width: 1060px;
   margin: 0px auto;
   padding: 0px 0px 30px 0px;
   min-height:400px;
@@ -33,13 +34,14 @@ body, p {
   margin: 0px;
 }
 #content {
-  margin: 0px 290px 0px 0px;
+  margin: 0px 10px 0px 310px;
   padding: 0px;
-  width: 758px;
+  min-width: 758px;
 }
 #sidebar {
   width: 290px;
-  float: right;
+  float: left;
+  margin:0 0 0 10px;
   font-size: 14px;
 }
 #content .panel {
@@ -50,7 +52,7 @@ body, p {
   background: hsla(0, 0%, 100%, 1);
 }
 #sidebar .header {
-  background: hsl(0, 0%, 93%);
+  /*background: hsl(0, 0%, 93%);*/
   color: hsl(202, 6%, 34%);
   font-weight: bold;
 }
@@ -115,6 +117,9 @@ body, p {
 .bold {
   font-weight: bold;
 }
+.pl10{
+  padding-left:10px;
+}
 a.dark {
   overflow: hidden;
   white-space: nowrap;
@@ -148,7 +153,18 @@ a.light:hover {
 }
 .panel .header {
   padding: 7px 10px;
-  background: hsl(0,0%,93%);
+  /*background: hsl(0,0%,93%);*/
+  background: rgb(234, 234, 234);
+  background-size: 100%;
+  background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgb(253, 253, 253)),color-stop(100%,rgb(234, 234, 234)));
+  background-image: -webkit-linear-gradient(top,rgb(253, 253, 253),rgb(234, 234, 234));
+  background-image: -moz-linear-gradient(top,rgb(253, 253, 253),rgb(234, 234, 234));
+  background-image: -o-linear-gradient(top,rgb(253, 253, 253),rgb(234, 234, 234));
+  background-image: linear-gradient(top,rgb(253, 253, 253),rgb(234, 234, 234));
+  text-shadow: 0 1px rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(205, 205, 205);
+  color: rgb(99, 99, 99);
+  font-weight: 600;
 }
 .panel .moon {
   padding: 10px;
@@ -158,6 +174,10 @@ a.light:hover {
 }
 .panel .inner {
   line-height: 27px;
+  padding:10px;
+}
+.panel .inner.nopadding{
+  padding:0;
 }
 .panel .inner .unstyled li div {
   text-overflow: ellipsis;
@@ -457,7 +477,10 @@ img.unread {
 }
 .user_profile {
   margin-top: 20px;
-  clear: left;
+  /*clear: left;*/
+}
+#profile{
+  width:285px;
 }
 #collect_btn {
   margin-top: -10px;  
@@ -583,24 +606,36 @@ textarea[id^=wmd-input] {
 /* custom bootstrap */
 .navbar {
   margin-bottom: 0px;
-  background-color: hsl(0, 0%, 93%);
+  background: rgb(65, 140, 228);
+  border-bottom: 1px solid rgb(24, 90, 167);
+  box-shadow: rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  background-color: rgb(75, 160, 233);
+  background-image: -moz-linear-gradient(top,rgb(82, 173, 237),rgb(65, 140, 228));
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(rgb(82, 173, 237)),to(rgb(65, 140, 228)));
+  background-image: -webkit-linear-gradient(top,rgb(82, 173, 237),rgb(65, 140, 228));
+  background-image: -o-linear-gradient(top,rgb(82, 173, 237),rgb(65, 140, 228));
+  background-image: linear-gradient(to bottom,rgb(82, 173, 237),rgb(65, 140, 228));
+  background-repeat: repeat-x;
+  /*background-color: hsl(0, 0%, 93%);*/
   z-index: 9;
   width: 100%;
   position: relative;
   box-shadow: 0px 0px 1px hsl(0, 0%, 40%);
 }
+
 .navbar-inner {
   background: none;
   border-radius: 0px;
   border: none;
   box-shadow: none;
+  padding:0 10px;
 }
 .navbar .container {
-  width: 1060px;
+  min-width: 1060px;
   margin: 4px auto;
 }
 .navbar .brand {
-  padding: 7px 0px 0px 20px;
+  padding: 0px 0px 0px 20px;
   width: 143px;
 }
 .navbar .navbar-search {
@@ -610,8 +645,10 @@ textarea[id^=wmd-input] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: 0px 0px 4px hsl(0, 12%, 76%);
-  background: white url('../images/search.png') no-repeat 4px 4px;
-  padding: 4px 5px 4px 22px;
+  background: white url('../images/search.png') no-repeat 10px 5px;
+  padding: 4px 10px 4px 22px;
+  line-height:1.5em;
+  text-indent:1em;
   color: #666;
   border: 0px;
 }
@@ -621,7 +658,7 @@ textarea[id^=wmd-input] {
 }
 .navbar .search-query:focus, .navbar .search-query.focused {
   background-color: #fff;
-  padding: 4px 5px 4px 22px;
+  padding: 4px 10px 4px 22px;
   color: #000;
 }
 .navbar .nav .divider-vertical {
@@ -631,7 +668,12 @@ textarea[id^=wmd-input] {
 .navbar .nav > li > a {
   text-shadow: none;
   font-weight: bold;
-  color: hsl(210, 27%, 30%);
+  color: white;
+}
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover{
+  color:white;
+  opacity: 0.7;
 }
 .form-actions {
   border-top: none;

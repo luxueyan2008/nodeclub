@@ -1,6 +1,38 @@
 var mongoose = require('mongoose');
 var config = require('../config').config;
-
+if(process.env.VCAP_SERVICES){
+    // var env = JSON.parse(process.env.VCAP_SERVICES);
+    // var mongo = env['mongodb-1.8'][0]['credentials'];
+    var mongo = {
+        "hostname":"linus.mongohq.com",
+        "port":10043,
+        "username":"luxueyan",
+        "password":"luxueyan881123",
+        "name":"",
+        "db":"myclub_luxueyan"
+    };
+}
+else{
+    var mongo = {
+        "hostname":"localhost",
+        "port":27017,
+        "username":"",
+        "password":"",
+        "name":"",
+        "db":"myclub"
+    }
+}
+config.db = (function(obj){
+    obj.hostname = (obj.hostname || 'localhost');
+    obj.port = (obj.port || 27017);
+    obj.db = (obj.db || 'test');
+    if(obj.username && obj.password){
+        return "mongodb://" + obj.username + ":" + obj.password + "@" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    }
+    else{
+        return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
+    }
+})(mongo);
 mongoose.connect(config.db, function (err) {
   if (err) {
     console.error('connect to %s error: ', config.db, err.message);
